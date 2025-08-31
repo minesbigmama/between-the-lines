@@ -1,0 +1,47 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {}
+}import React, { useEffect, useMemo, useState } from "react";
+
+/**
+
+BetweenTheLines — Style Translator (Freemium Launch Build)
+
+
+---
+
+This single-file React app now includes:
+
+Core style translation (heuristics) + Coaching Mode + Tone toggles
+
+
+Freemium gating (3 translations/day on Free; unlimited on Pro/Lifetime)
+
+
+Pricing table (Free / Pro / Lifetime) with upgrade flow (client-side stub)
+
+
+Copy and Download buttons with SVG clipart icons
+
+
+Tone toggles, coaching mode, sliders — all still there. */
+
+
+
+// --------------------------------- // App Constants & Types // ---------------------------------
+
+const APP_NAME = "BetweenTheLines"; // updated app name const TAGLINE = "Where what’s said becomes what’s understood.";
+
+type StyleProfile = { id: string; label: string; description: string; directness: number; // 0..100 validation: number; // 0..100 detail: number; // 0..100 solution: number; // 0..100 };
+
+type PlanId = "free" | "pro" | "lifetime";
+
+// LocalStorage keys const LS_PLAN = "betweenthelines_plan"; const LS_USAGE = "betweenthelines_usage_count"; const LS_DATE = "betweenthelines_usage_date";
+
+// (other code unchanged)
+
+// --------------------------------- // Main App UI (excerpt showing tagline use) // ---------------------------------
+
+export default function App() { // ...hooks return ( <div className="min-h-screen bg-slate-50 text-slate-900 p-6"> <div className="max-w-5xl mx-auto"> <header className="mb-6 flex flex-col gap-2"> <h1 className="text-3xl font-bold">{APP_NAME}</h1> <p className="text-slate-600">{TAGLINE}</p> <div className="text-xs text-slate-500">Plan: <span className="font-medium uppercase">{/* plan info here /}</span></div> </header> {/ rest of UI ... */} <footer className="mt-8 text-xs text-slate-500 space-y-1"> <p>{APP_NAME} — {TAGLINE}</p> <p>Built as a heuristic MVP. Communication is complex—use translations as a starting point, not a verdict.</p> <p>Deploy free on Vercel/Netlify. Add Stripe for payments, Firebase/Supabase for auth & history.</p> </footer> </div> </div> ); }
+
+  
